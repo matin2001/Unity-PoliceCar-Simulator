@@ -59,6 +59,7 @@
     <Compile Include="Assets\Scripts\CarController.cs" />
     <Compile Include="Assets\Scripts\cameraFollow.cs" />
     <Compile Include="Assets\Scripts\CarLightsController.cs" />
+    <Compile Include="Assets\Scripts\PoliceLightAndSiren.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
