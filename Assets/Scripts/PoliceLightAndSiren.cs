@@ -3,40 +3,32 @@ using UnityEngine;
 public class PoliceLightAndSiren : MonoBehaviour
 {
     // Light references
-    public Light redLight; // Assign red light in the Inspector
-    public Light blueLight; // Assign blue light in the Inspector
-
-    // Audio source reference
+    public Light redLight; 
+    public Light blueLight; 
     public AudioSource siren;
-
-    // Flashing effect variables
     private bool isBlueLightOn = true;
     private bool sirenActive = false;
 
     void Start()
     {
-        // Start the flashing effect
-        InvokeRepeating(nameof(FlashLights), 0f, 0.5f); // Adjust frequency for desired flash speed
+        InvokeRepeating(nameof(FlashLights), 0f, 0.5f); 
     }
 
     void Update()
     {
-        // Toggle siren and intensify lights when Space is pressed
         if (Input.GetKeyDown(KeyCode.Space))
         {
             sirenActive = !sirenActive;
-
-            // Activate/deactivate siren sound
             if (sirenActive)
             {
                 siren.Play();
-                redLight.intensity = 5; // Intensify lights
+                redLight.intensity = 5;
                 blueLight.intensity = 5;
             }
             else
             {
                 siren.Stop();
-                redLight.intensity = 2; // Reset to base intensity
+                redLight.intensity = 2;
                 blueLight.intensity = 2;
             }
         }
@@ -44,7 +36,6 @@ public class PoliceLightAndSiren : MonoBehaviour
 
     void FlashLights()
     {
-        // Alternate lights
         if (isBlueLightOn)
         {
             blueLight.enabled = true;
@@ -55,8 +46,6 @@ public class PoliceLightAndSiren : MonoBehaviour
             blueLight.enabled = false;
             redLight.enabled = true;
         }
-
-        // Toggle the state
         isBlueLightOn = !isBlueLightOn;
     }
 }
